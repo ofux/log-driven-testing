@@ -19,7 +19,7 @@ func NewRegex(expr string) (Assertion, error) {
 
 func (r regex) Assert(logLine string) (failMessage string, successful bool) {
 	if !r.regexp.MatchString(logLine) {
-		failMessage = fmt.Sprintf("Line '%s' doesn't match regex %s", logLine, r.regexp)
+		failMessage = fmt.Sprintf("Line '%s' doesn't match regex '%s'.", logLine, r.regexp)
 		return failMessage, false
 	}
 	return "", true
